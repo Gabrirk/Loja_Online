@@ -29,6 +29,24 @@ public class PedidoController {
         }
     }
 
+    @GetMapping("procurar_pedidos")
+    public ResponseEntity<?> procurarPedidos(){
+        try {
+            List<Pedido> list = pedidoService.procurarPedidos();
+            return new ResponseEntity(list, HttpStatus.OK);
+        } catch (Exception ex){
+            return new ResponseEntity<>("Error", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    /*@GetMapping("/pedido/{idPedido}")
+    public ResponseEntity<?> pesquisarPedido(@PathVariable("idPedido") int idPedido){
+        try {
+
+        }
+    }*/
+
+
 
 
 }
