@@ -36,6 +36,17 @@ public class ProdutoService {
         }
     }
 
+    public Produto deletarProduto(Long codigo) throws Exception{
+        Optional<Produto> produtoOptional = produtos.stream().filter(e -> e.getCodigo() == codigo).findFirst();
+        if(produtoOptional.isPresent()){
+            Produto produto = produtoOptional.get();
+            produtos.remove(produto);
+            return produto;
+        } else {
+            throw new Exception ("Produto não encontrado!");
+        }
+    }
+
 
 
 }

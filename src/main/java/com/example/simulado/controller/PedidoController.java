@@ -2,7 +2,6 @@ package com.example.simulado.controller;
 
 import com.example.simulado.entity.Pedido;
 import com.example.simulado.service.PedidoService;
-import com.example.simulado.service.ProdutoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,6 @@ import java.util.List;
 public class PedidoController {
 
     final PedidoService pedidoService;
-
     public PedidoController(PedidoService pedidoService){
         this.pedidoService = pedidoService;
     }

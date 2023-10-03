@@ -24,7 +24,7 @@ public class ProdutoController {
     public ResponseEntity<?> procurarProdutos(){
         try {
             List<Produto> list = produtoService.procurarProdutos();
-            return new ResponseEntity(list, HttpStatus.OK);
+            return new ResponseEntity(list, HttpStatus.OK );
         } catch (Exception ex){
             return new ResponseEntity<>("Error", HttpStatus.BAD_GATEWAY);
         }
@@ -48,6 +48,17 @@ public class ProdutoController {
             return new ResponseEntity<>(ex.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
+
+    @DeleteMapping("/delete/{codigo}")
+    public ResponseEntity<?> deletarProduto(@PathVariable("codigo") Long codigo){
+        try {
+            Produto produto = produtoService.deletarProduto(codigo);
+            return new ResponseEntity("Produto deletado com sucesso", HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
 
 
 
